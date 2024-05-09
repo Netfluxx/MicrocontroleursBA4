@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm Thu May 09 20:18:15 2024
+AVRASM ver. 2.2.6  C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm Thu May 09 20:25:55 2024
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m128def.inc'
 C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(18): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\macros.asm'
@@ -3169,8 +3169,8 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 00002a 98c3
 00002b c001
 00002c 9ac3                          INVP    PORTB, 3          ; Toggle led 3 for visual feedback
-00002d e002
-00002e 2e10                          _LDI    wr1, 0x02
+00002d e003
+00002e 2e10                          _LDI    wr1, 0x03
 00002f e008
 000030 2ee0                          _LDI    mask, 0b00001000  ; detected in row 4 on PIND3
 000031 c000                          rjmp    column_detect

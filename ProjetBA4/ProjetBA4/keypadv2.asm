@@ -66,7 +66,7 @@ isr_row3:
 
 isr_row4:
     INVP    PORTB, 3          ; Toggle led 3 for visual feedback
-    _LDI    wr1, 0x02
+    _LDI    wr1, 0x03
     _LDI    mask, 0b00001000  ; detected in row 4 on PIND3
     rjmp    column_detect
 	
