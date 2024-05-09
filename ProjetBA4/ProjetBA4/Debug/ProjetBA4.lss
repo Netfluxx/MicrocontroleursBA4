@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm Thu May 09 20:03:43 2024
+AVRASM ver. 2.2.6  C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm Thu May 09 20:18:15 2024
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m128def.inc'
 C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(18): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\macros.asm'
@@ -3230,8 +3230,8 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 00005d 210e                      	and		w,mask
 00005e 2300                      	tst		w			
 00005f f451                      	brne	col2 ; check next col since this didn't pull the line low
-000060 e000
-000061 2e20                      	_LDI	wr0,0x00
+000060 e003
+000061 2e20                      	_LDI	wr0,0x03
 000062 9bc4
 000063 c002
 000064 98c4
@@ -3285,8 +3285,8 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 000093 210e                      	and		w,mask
 000094 2300                      	tst		w			
 000095 f451                      	brne	col3
-000096 e001
-000097 2e20                      	_LDI	wr0,0x01
+000096 e002
+000097 2e20                      	_LDI	wr0,0x02
 000098 9bc5
 000099 c002
 00009a 98c5
@@ -3340,8 +3340,8 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 0000c9 210e                      	and		w,mask
 0000ca 2300                      	tst		w			
 0000cb f451                      	brne	col4
-0000cc e002
-0000cd 2e20                      	_LDI	wr0,0x02
+0000cc e001
+0000cd 2e20                      	_LDI	wr0,0x01
 0000ce 9bc6
 0000cf c002
 0000d0 98c6
@@ -3395,8 +3395,8 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 0000ff 210e                      	and		w,mask
 000100 2300                      	tst		w			
 000101 f429                      	brne	isr_return
-000102 e003
-000103 2e20                      	_LDI	wr0,0x03
+000102 e000
+000103 2e20                      	_LDI	wr0,0x00
                                  	;INVP	PORTB,3		;;debug
 000104 ef0f
 000105 2ef0                      	_LDI wr2, 0xff
@@ -4099,51 +4099,51 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 00041c 2799                      	clr b3
 00041d 2400                      	clr r0
 00041e 9478                      	sei
-00041f d005                          rcall clear_code
-000420 940c 043d                 	jmp main
+00041f d007                          rcall clear_code
+000420 940c 043f                 	jmp main
                                  
                                  
                                  
                                  print_code:
-                                     ;cpi     a0, '*'
-                                     ;breq    clear_code         ; Branch if key == *
+000422 322a                          cpi     a0, '*'
+000423 f019                          breq    clear_code         ; Branch if key == *
                                  	;ldi a0, 'x'
                                  	;PRINTF LCD
                                  	;.db CR, CR, "Code:tst"
                                  	;.db 0
-000422 dcf2                      	rcall LCD_putc
-000423 24ff                      	clr wr2
-000424 9508                          ret
+000424 dcf0                      	rcall LCD_putc
+000425 24ff                      	clr wr2
+000426 9508                          ret
                                  
                                  clear_code:
-000425 dcfb                          rcall   LCD_clear
-000426 e105
-000427 2e40
-000428 e001
-000429 2e50
-00042a dd28                      	PRINTF LCD
-00042b 0d0d
-00042c 6f43
-00042d 6564
-00042e 233a                      	.db	CR, CR, "Code:#"
+000427 dcf9                          rcall   LCD_clear
+000428 e105
+000429 2e40
+00042a e001
+00042b 2e50
+00042c dd26                      	PRINTF LCD
+00042d 0d0d
+00042e 6f43
+00042f 6564
+000430 233a                      	.db	CR, CR, "Code:#"
 C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(195): warning: .cseg .db misalignment - padding zero byte
-00042f 0000                      	.db 0
-000430 9508                          ret
+000431 0000                      	.db 0
+000432 c00c                          rjmp main
                                  
                                  get_char: ;Lookup table index = 4*row + col
-000431 e064                      	ldi     b0, 4
-000432 9e16                          mul     wr1, b0          ; wr1 <-- detected row*4
-000433 0c02                          add     r0, wr0          ; r0  <-- detected row*4 + detected column
-000434 2d60                          mov     b0, r0           ; b0  <-- index of key (starts at 0)
-000435 e0f8                          ldi     ZH, high(2*KeySet)
-000436 eae8                          ldi     ZL, low(2*KeySet)
-000437 0fe6                          add     ZL, b0
-000438 e090                      	ldi		b3, 0x00
-000439 1ff9                          adc     ZH, b3			 ; Adjust ZH with carry
-00043a 9124                          lpm     a0, Z  ; enregistre la valeur a l'adresse pointee par Z=r31:r30 dans a0
+000433 e064                      	ldi     b0, 4
+000434 9e16                          mul     wr1, b0          ; wr1 <-- detected row*4
+000435 0c02                          add     r0, wr0          ; r0  <-- detected row*4 + detected column
+000436 2d60                          mov     b0, r0           ; b0  <-- index of key (starts at 0)
+000437 e0f8                          ldi     ZH, high(2*KeySet)
+000438 eaec                          ldi     ZL, low(2*KeySet)
+000439 0fe6                          add     ZL, b0
+00043a e090                      	ldi		b3, 0x00
+00043b 1ff9                          adc     ZH, b3			 ; Adjust ZH with carry
+00043c 9124                          lpm     a0, Z  ; enregistre la valeur a l'adresse pointee par Z=r31:r30 dans a0
                                  	;rcall LCD_putc
-00043b dfe6                      	rcall print_code
-00043c 9508                      	ret
+00043d dfe4                      	rcall print_code
+00043e c000                      	rjmp main
                                  
                                  ; === main program loop ===
                                  main:
@@ -4152,31 +4152,31 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
                                      ;OUTI    EIMSK,0x0f         ; Enable external interrupts INT0-INT3
                                      ;OUTI    EICRB,0x00		   ; Condition d'interrupt au niveau bas pour int4-7 = colonnes
                                  	;OUTI	KPDO, 0xff
-00043d ef0f                      	ldi w, 0xff
-00043e 16f0                      	cp wr2, w
-00043f f789                      	brne get_char
-000440 e104
-000441 2e30
-000442 e001
-000443 930f
-000444 923f
-000445 e300
-000446 2e30
-000447 e006
-000448 943a
-000449 f7f1
+00043f ef0f                      	ldi w, 0xff
+000440 16f0                      	cp wr2, w
+000441 f389                      	breq get_char
+000442 e104
+000443 2e30
+000444 e001
+000445 930f
+000446 923f
+000447 e300
+000448 2e30
+000449 e006
 00044a 943a
-00044b 950a
-00044c f7d9
-00044d 903f
-00044e 910f
-00044f 943a
-000450 f791
-000451 950a
-000452 f781                      	WAIT_MS 20
+00044b f7f1
+00044c 943a
+00044d 950a
+00044e f7d9
+00044f 903f
+000450 910f
+000451 943a
+000452 f791
+000453 950a
+000454 f781                      	WAIT_MS 20
                                  	;PRINTF LCD
                                  	;.db CR, CR, FBIN, wr1, 0
-000453 cfe9                          rjmp    main
+000455 cfe9                          rjmp    main
                                  
                                  ;go_to_get_char:
                                  	;INVP	PORTB, 5
@@ -4185,13 +4185,13 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
                                  
                                  ; Keypad ASCII mapping table
                                  KeySet:
-000454 3231
-000455 4133                      .db '1', '2', '3', 'A'
-000456 3534
-000457 4236                      .db '4', '5', '6', 'B'
-000458 3837
-000459 4339                      .db '7', '8', '9', 'C'
-00045a 302a
+000456 3231
+000457 4133                      .db '1', '2', '3', 'A'
+000458 3534
+000459 4236                      .db '4', '5', '6', 'B'
+00045a 3837
+00045b 4339                      .db '7', '8', '9', 'C'
+00045c 302a
 
 
 RESOURCE USE INFORMATION
@@ -4211,7 +4211,7 @@ counted separately from r26..r31 here.
 "ATmega128" register use summary:
 x  :   6 y  :   0 z  :   1 r0 :  10 r1 :   6 r2 :   6 r3 :  65 r4 :   2 
 r5 :   2 r6 :   0 r7 :   0 r8 :   5 r9 :   5 r10:   5 r11:   6 r12:  11 
-r13:   0 r14:   9 r15:   7 r16: 236 r17:   1 r18:  26 r19:  15 r20:  15 
+r13:   0 r14:   9 r15:   7 r16: 236 r17:   1 r18:  27 r19:  15 r20:  15 
 r21:  15 r22:  14 r23:  25 r24:   7 r25:  18 r26:   4 r27:   4 r28:   0 
 r29:   0 r30:  13 r31:   8 
 Registers used: 29 out of 35 (82.9%)
@@ -4219,18 +4219,18 @@ Registers used: 29 out of 35 (82.9%)
 "ATmega128" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   1 add   :   4 adiw  :   5 and   :   4 
 andi  :   7 asr   :   2 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   1 brcs  :   0 break :   0 breq  :  16 brge  :   0 brhc  :   0 
+brcc  :   1 brcs  :   0 break :   0 breq  :  18 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   1 brlt  :   0 brmi  :   1 
-brne  :  48 brpl  :   1 brsh  :   1 brtc  :   5 brts  :   0 brvc  :   0 
+brne  :  47 brpl  :   1 brsh  :   1 brtc  :   5 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   1 call  :   0 cbi   :   8 cbr   :   0 
 clc   :   1 clh   :   0 cli   :   0 cln   :   0 clr   :  21 cls   :   0 
 clt   :   1 clv   :   0 clz   :   0 com   :   8 cp    :   2 cpc   :   3 
-cpi   :  10 cpse  :   0 dec   :  51 elpm  :   0 eor   :   0 fmul  :   0 
+cpi   :  11 cpse  :   0 dec   :  51 elpm  :   0 eor   :   0 fmul  :   0 
 fmuls :   0 fmulsu:   0 icall :   1 ijmp  :   1 in    :   5 inc   :   2 
 jmp   :   6 ld    :   6 ldd   :   0 ldi   : 106 lds   :   3 lpm   :  14 
 lsl   :   1 lsr   :   3 mov   :  56 movw  :   0 mul   :   1 muls  :   0 
 mulsu :   0 neg   :   0 nop   :   1 or    :   0 ori   :   2 out   :  14 
-pop   :  41 push  :  40 rcall :  28 ret   :  15 reti  :   1 rjmp  :  59 
+pop   :  41 push  :  40 rcall :  28 ret   :  13 reti  :   1 rjmp  :  61 
 rol   :  10 ror   :  13 sbc   :   3 sbci  :   0 sbi   :   8 sbic  :   0 
 sbis  :   8 sbiw  :   0 sbr   :   1 sbrc  :  11 sbrs  :   0 sec   :   0 
 seh   :   0 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   1 
@@ -4242,7 +4242,7 @@ Instructions used: 60 out of 114 (52.6%)
 "ATmega128" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0008b8   1386     26   1412  131072   1.1%
+[.cseg] 0x000000 0x0008bc   1390     26   1416  131072   1.1%
 [.dseg] 0x000100 0x000102      0      2      2    4096   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    4096   0.0%
 

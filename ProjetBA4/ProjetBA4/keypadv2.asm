@@ -87,7 +87,7 @@ col1:
 	and		w,mask
 	tst		w			
 	brne	col2 ; check next col since this didn't pull the line low
-	_LDI	wr0,0x00
+	_LDI	wr0,0x03
 	INVP	PORTB,4		;;debug
 	_LDI wr2, 0xff
 	rjmp isr_return
@@ -99,7 +99,7 @@ col2:
 	and		w,mask
 	tst		w			
 	brne	col3
-	_LDI	wr0,0x01
+	_LDI	wr0,0x02
 	INVP	PORTB,5		;;debug
 	_LDI wr2, 0xff
 	rjmp isr_return
@@ -111,7 +111,7 @@ col3:
 	and		w,mask
 	tst		w			
 	brne	col4
-	_LDI	wr0,0x02
+	_LDI	wr0,0x01
 	INVP	PORTB,6		;;debug
 	_LDI wr2, 0xff
 	rjmp isr_return
@@ -123,7 +123,7 @@ col4:
 	and		w,mask
 	tst		w			
 	brne	isr_return
-	_LDI	wr0,0x03
+	_LDI	wr0,0x00
 	;INVP	PORTB,3		;;debug
 	_LDI wr2, 0xff
 	rjmp isr_return
@@ -178,8 +178,8 @@ reset:  ;in : None, out: KPDD, KPDO, DDRB, EIMSK, EICRB, PORTB, mod: mask, w, _w
 
 
 print_code:
-    ;cpi     a0, '*'
-    ;breq    clear_code         ; Branch if key == *
+    cpi     a0, '*'
+    breq    clear_code         ; Branch if key == *
 	;ldi a0, 'x'
 	;PRINTF LCD
 	;.db CR, CR, "Code:tst"
@@ -193,7 +193,7 @@ clear_code:
 	PRINTF LCD
 	.db	CR, CR, "Code:#"
 	.db 0
-    ret
+    rjmp main
 
 get_char: ;Lookup table index = 4*row + col
 	ldi     b0, 4
@@ -208,7 +208,7 @@ get_char: ;Lookup table index = 4*row + col
     lpm     a0, Z  ; enregistre la valeur a l'adresse pointee par Z=r31:r30 dans a0
 	;rcall LCD_putc
 	rcall print_code
-	ret
+	rjmp main
 
 ; === main program loop ===
 main:
@@ -219,7 +219,7 @@ main:
 	;OUTI	KPDO, 0xff
 	ldi w, 0xff
 	cp wr2, w
-	brne get_char
+	breq get_char
 	WAIT_MS 20
 	;PRINTF LCD
 	;.db CR, CR, FBIN, wr1, 0
