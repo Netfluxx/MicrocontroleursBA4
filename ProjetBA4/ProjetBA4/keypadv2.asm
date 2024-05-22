@@ -141,7 +141,6 @@ isr_return:
 ;TODO: Store code as a string in SRAM and change print_code to print the current code
 
 
-
 ; Initialization and configuration
 .org 0x400
 
@@ -170,10 +169,9 @@ reset:  ;in : None, out: KPDD, KPDO, DDRB, EIMSK, EICRB, PORTB, mod: mask, w, _w
 	jmp kpd_main
 
 
-
 print_code:
     cpi     a0, '*'
-    breq    clear_code         ; Branch if key == *
+    breq    clear_code       ; Branch if key == *
 	WAIT_MS 500
 	clr wr2
 	rcall LCD_putc
@@ -183,6 +181,7 @@ clear_code:
     rcall   LCD_clear
 	PRINTF LCD
 	.db	CR, CR, "Code:"
+	clr wr2
     rjmp kpd_main
 
 get_char: ;Lookup table index = 4*row + col
@@ -195,27 +194,20 @@ get_char: ;Lookup table index = 4*row + col
     add     ZL, b0
 	ldi		b3, 0x00
     adc     ZH, b3			 ; Adjust ZH with carry
-    lpm     a0, Z  ; enregistre la valeur a l'adresse pointee par Z=r31:r30 dans a0
+    lpm     a0, Z			 ; enregistre la valeur a l'adresse pointee par Z=r31:r30 dans a0
 	
 	rcall print_code
 	rjmp kpd_main
 
 ; === main program loop ===
 kpd_main:
-	mov _w, w
-	ldi w, 0xff
-	cp wr2, w
-	mov w, _w
+	;mov _w, w		;save context
+	_CPI wr2, 0xff
+	;mov w, _w
 	breq get_char
-	WAIT_MS 20
-	;PRINTF LCD
-	;.db CR, CR, FBIN, wr1, 0
+	WAIT_MS 10
     rjmp    kpd_main
 
-;go_to_get_char:
-	;INVP	PORTB, 5
-	;call get_char
-	;ret
 
 ; Keypad ASCII mapping table
 KeySet:

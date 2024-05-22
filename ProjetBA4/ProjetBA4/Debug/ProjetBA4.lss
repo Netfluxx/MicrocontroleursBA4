@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm Wed May 22 15:04:47 2024
+AVRASM ver. 2.2.6  C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm Wed May 22 17:24:15 2024
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m128def.inc'
 C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(12): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\macros.asm'
@@ -3106,7 +3106,7 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
                                  .def    wr2 = r15       ; semaphore: must enter LCD display routine, unary: 0 or other
                                  
                                  ; === interrupt vector table ===
-                                 .org 0x000
+                                 .org 0x0000
 000000 940c 0400                     jmp reset
                                  .org 0x0002
 000002 940c 000a                     jmp isr_row1    ; external interrupt INT0 = bit 0 du PORTD cable sur Row1
@@ -4056,7 +4056,6 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
                                  ;TODO: Store code as a string in SRAM and change print_code to print the current code
                                  
                                  
-                                 
                                  ; Initialization and configuration
                                  .org 0x400
                                  
@@ -4094,13 +4093,12 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 00041d 2400                      	clr r0
 00041e 9478                      	sei
 00041f d01a                          rcall clear_code
-000420 940c 0451                 	jmp kpd_main
-                                 
+000420 940c 0452                 	jmp kpd_main
                                  
                                  
                                  print_code:
 000422 322a                          cpi     a0, '*'
-000423 f0b1                          breq    clear_code         ; Branch if key == *
+000423 f0b1                          breq    clear_code       ; Branch if key == *
 000424 ef04
 000425 2e30
 000426 e002
@@ -4134,69 +4132,64 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 000440 0d0d
 000441 6f43
 000442 6564
-C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(185): warning: .cseg .db misalignment - padding zero byte
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(183): warning: .cseg .db misalignment - padding zero byte
 000443 003a                      	.db	CR, CR, "Code:"
-000444 c00c                          rjmp kpd_main
+000444 24ff                      	clr wr2
+000445 c00c                          rjmp kpd_main
                                  
                                  get_char: ;Lookup table index = 4*row + col
-000445 e064                      	ldi     b0, 4
-000446 9e16                          mul     wr1, b0          ; wr1 <-- detected row*4, result is stored in r0
-000447 0c02                          add     r0, wr0          ; r0  <-- detected row*4 + detected column
-000448 2d60                          mov     b0, r0           ; b0  <-- index of key (starts at 0)
-000449 e0f8                          ldi     ZH, high(2*KeySet)
-00044a ede4                          ldi     ZL, low(2*KeySet)
-00044b 0fe6                          add     ZL, b0
-00044c e090                      	ldi		b3, 0x00
-00044d 1ff9                          adc     ZH, b3			 ; Adjust ZH with carry
-00044e 9124                          lpm     a0, Z  ; enregistre la valeur a l'adresse pointee par Z=r31:r30 dans a0
+000446 e064                      	ldi     b0, 4
+000447 9e16                          mul     wr1, b0          ; wr1 <-- detected row*4, result is stored in r0
+000448 0c02                          add     r0, wr0          ; r0  <-- detected row*4 + detected column
+000449 2d60                          mov     b0, r0           ; b0  <-- index of key (starts at 0)
+00044a e0f8                          ldi     ZH, high(2*KeySet)
+00044b ede2                          ldi     ZL, low(2*KeySet)
+00044c 0fe6                          add     ZL, b0
+00044d e090                      	ldi		b3, 0x00
+00044e 1ff9                          adc     ZH, b3			 ; Adjust ZH with carry
+00044f 9124                          lpm     a0, Z			 ; enregistre la valeur a l'adresse pointee par Z=r31:r30 dans a0
                                  	
-00044f dfd2                      	rcall print_code
-000450 c000                      	rjmp kpd_main
+000450 dfd1                      	rcall print_code
+000451 c000                      	rjmp kpd_main
                                  
                                  ; === main program loop ===
                                  kpd_main:
-000451 2f10                      	mov _w, w
-000452 ef0f                      	ldi w, 0xff
-000453 16f0                      	cp wr2, w
-000454 2f01                      	mov w, _w
-000455 f379                      	breq get_char
-000456 e104
-000457 2e30
-000458 e001
-000459 930f
-00045a 923f
-00045b e300
-00045c 2e30
-00045d e006
-00045e 943a
-00045f f7f1
-000460 943a
-000461 950a
-000462 f7d9
-000463 903f
-000464 910f
-000465 943a
-000466 f791
-000467 950a
-000468 f781                      	WAIT_MS 20
-                                 	;PRINTF LCD
-                                 	;.db CR, CR, FBIN, wr1, 0
-000469 cfe7                          rjmp    kpd_main
+                                 	;mov _w, w		;save context
+000452 ef0f
+000453 16f0                      	_CPI wr2, 0xff
+                                 	;mov w, _w
+000454 f389                      	breq get_char
+000455 e00a
+000456 2e30
+000457 e001
+000458 930f
+000459 923f
+00045a e300
+00045b 2e30
+00045c e006
+00045d 943a
+00045e f7f1
+00045f 943a
+000460 950a
+000461 f7d9
+000462 903f
+000463 910f
+000464 943a
+000465 f791
+000466 950a
+000467 f781                      	WAIT_MS 10
+000468 cfe9                          rjmp    kpd_main
                                  
-                                 ;go_to_get_char:
-                                 	;INVP	PORTB, 5
-                                 	;call get_char
-                                 	;ret
                                  
                                  ; Keypad ASCII mapping table
                                  KeySet:
-00046a 3231
-00046b 4133                      .db '1', '2', '3', 'A'
-00046c 3534
-00046d 4236                      .db '4', '5', '6', 'B'
-00046e 3837
-00046f 4339                      .db '7', '8', '9', 'C'
-000470 302a
+000469 3231
+00046a 4133                      .db '1', '2', '3', 'A'
+00046b 3534
+00046c 4236                      .db '4', '5', '6', 'B'
+00046d 3837
+00046e 4339                      .db '7', '8', '9', 'C'
+00046f 302a
 
 
 RESOURCE USE INFORMATION
@@ -4216,7 +4209,7 @@ counted separately from r26..r31 here.
 "ATmega128" register use summary:
 x  :   6 y  :   0 z  :   1 r0 :  10 r1 :   6 r2 :   6 r3 :  72 r4 :   2 
 r5 :   2 r6 :   0 r7 :   0 r8 :   5 r9 :   5 r10:   5 r11:   6 r12:  11 
-r13:   0 r14:   9 r15:   7 r16: 248 r17:   3 r18:  27 r19:  15 r20:  15 
+r13:   0 r14:   9 r15:   8 r16: 246 r17:   1 r18:  27 r19:  15 r20:  15 
 r21:  15 r22:  14 r23:  25 r24:   7 r25:  18 r26:   4 r27:   4 r28:   0 
 r29:   0 r30:  13 r31:   8 
 Registers used: 29 out of 35 (82.9%)
@@ -4228,12 +4221,12 @@ brcc  :   1 brcs  :   0 break :   0 breq  :  18 brge  :   0 brhc  :   0
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   1 brlt  :   0 brmi  :   1 
 brne  :  51 brpl  :   1 brsh  :   1 brtc  :   5 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   1 call  :   0 cbi   :   8 cbr   :   0 
-clc   :   1 clh   :   0 cli   :   0 cln   :   0 clr   :  21 cls   :   0 
+clc   :   1 clh   :   0 cli   :   0 cln   :   0 clr   :  22 cls   :   0 
 clt   :   1 clv   :   0 clz   :   0 com   :   8 cp    :   2 cpc   :   3 
 cpi   :  11 cpse  :   0 dec   :  56 elpm  :   0 eor   :   0 fmul  :   0 
 fmuls :   0 fmulsu:   0 icall :   1 ijmp  :   1 in    :   5 inc   :   2 
 jmp   :   6 ld    :   6 ldd   :   0 ldi   : 110 lds   :   3 lpm   :  14 
-lsl   :   1 lsr   :   3 mov   :  60 movw  :   0 mul   :   1 muls  :   0 
+lsl   :   1 lsr   :   3 mov   :  58 movw  :   0 mul   :   1 muls  :   0 
 mulsu :   0 neg   :   0 nop   :   1 or    :   0 ori   :   2 out   :  14 
 pop   :  43 push  :  42 rcall :  28 ret   :  13 reti  :   1 rjmp  :  61 
 rol   :  10 ror   :  13 sbc   :   3 sbci  :   0 sbi   :   8 sbic  :   0 
@@ -4247,7 +4240,7 @@ Instructions used: 60 out of 114 (52.6%)
 "ATmega128" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0008e4   1432     24   1456  131072   1.1%
+[.cseg] 0x000000 0x0008e2   1430     24   1454  131072   1.1%
 [.dseg] 0x000100 0x000100      0      0      0    4096   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    4096   0.0%
 
