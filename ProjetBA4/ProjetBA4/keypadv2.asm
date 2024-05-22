@@ -9,12 +9,6 @@
 ; solution based on interrupts detected on each row; not optimal but functional if
 ;>and external four-input gate is not available
 
-; RAM Allocation
-.dseg
-current_code: .byte 1
-correct_code: .byte 1
-.cseg
-
 .include "macros.asm"        ; include macro definitions
 .include "definitions.asm"   ; include register/constant definitions
 
@@ -31,7 +25,7 @@ correct_code: .byte 1
 .def    wr2 = r15       ; semaphore: must enter LCD display routine, unary: 0 or other
 
 ; === interrupt vector table ===
-.org 0x000
+.org 0x0000
     jmp reset
 .org 0x0002
     jmp isr_row1    ; external interrupt INT0 = bit 0 du PORTD cable sur Row1
@@ -152,7 +146,7 @@ isr_return:
 .org 0x400
 
 reset:  ;in : None, out: KPDD, KPDO, DDRB, EIMSK, EICRB, PORTB, mod: mask, w, _w, wr0, wr1, wr2, a0, b0, b3, r0, I flag
-    LDSP    RAMEND
+    LDSP    RAMEND				;DO I STILL NEED IT IF IT IS ALREADY IN MAIN?
     rcall   LCD_init
     OUTI    KPDD,0xf0          ; port D bits 0-3 as input (DDR = 0), 4-7 as output (DDR = 1)
     OUTI    KPDO,0x0f          ; drive bits 4-7 low = Colonnes a 0V
@@ -173,31 +167,27 @@ reset:  ;in : None, out: KPDD, KPDO, DDRB, EIMSK, EICRB, PORTB, mod: mask, w, _w
 	clr r0
 	sei
     rcall clear_code
-	jmp main
+	jmp kpd_main
 
 
 
 print_code:
     cpi     a0, '*'
     breq    clear_code         ; Branch if key == *
-	;ldi a0, 'x'
-	;PRINTF LCD
-	;.db CR, CR, "Code:tst"
-	;.db 0
-	rcall LCD_putc
+	WAIT_MS 500
 	clr wr2
+	rcall LCD_putc
     ret
 
 clear_code:
     rcall   LCD_clear
 	PRINTF LCD
-	.db	CR, CR, "Code:#"
-	.db 0
-    rjmp main
+	.db	CR, CR, "Code:"
+    rjmp kpd_main
 
 get_char: ;Lookup table index = 4*row + col
 	ldi     b0, 4
-    mul     wr1, b0          ; wr1 <-- detected row*4
+    mul     wr1, b0          ; wr1 <-- detected row*4, result is stored in r0
     add     r0, wr0          ; r0  <-- detected row*4 + detected column
     mov     b0, r0           ; b0  <-- index of key (starts at 0)
     ldi     ZH, high(2*KeySet)
@@ -206,24 +196,21 @@ get_char: ;Lookup table index = 4*row + col
 	ldi		b3, 0x00
     adc     ZH, b3			 ; Adjust ZH with carry
     lpm     a0, Z  ; enregistre la valeur a l'adresse pointee par Z=r31:r30 dans a0
-	;rcall LCD_putc
+	
 	rcall print_code
-	rjmp main
+	rjmp kpd_main
 
 ; === main program loop ===
-main:
-
-    ;OUTI    DDRB,0xff          ; output for debug
-    ;OUTI    EIMSK,0x0f         ; Enable external interrupts INT0-INT3
-    ;OUTI    EICRB,0x00		   ; Condition d'interrupt au niveau bas pour int4-7 = colonnes
-	;OUTI	KPDO, 0xff
+kpd_main:
+	mov _w, w
 	ldi w, 0xff
 	cp wr2, w
+	mov w, _w
 	breq get_char
 	WAIT_MS 20
 	;PRINTF LCD
 	;.db CR, CR, FBIN, wr1, 0
-    rjmp    main
+    rjmp    kpd_main
 
 ;go_to_get_char:
 	;INVP	PORTB, 5
