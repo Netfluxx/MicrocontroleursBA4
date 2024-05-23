@@ -81,9 +81,8 @@ col1:
  in  w,KPDI
  and  w,mask
  tst  w   
- brne col2 ; check next col since this didn't pull the line low
+ brne col2
  _LDI wr0,0x03
- INVP PORTB,4  ;;debug
  _LDI wr2, 0xff
  rjmp isr_return
 col2:
@@ -95,7 +94,6 @@ col2:
  tst  w   
  brne col3
  _LDI wr0,0x02
- INVP PORTB,5  ;;debug
  _LDI wr2, 0xff
  rjmp isr_return
 col3:
@@ -107,7 +105,6 @@ col3:
  tst  w   
  brne col4
  _LDI wr0,0x01
- INVP PORTB,6  ;;debug
  _LDI wr2, 0xff
  rjmp isr_return
 col4:
@@ -119,24 +116,17 @@ col4:
  tst  w   
  brne isr_return
  _LDI wr0,0x00
- ;INVP PORTB,3  ;;debug
  _LDI wr2, 0xff
  rjmp isr_return
 
 isr_return:
- ;reinitialize detection
+	;reinitialize column detection
     OUTI    KPDO,0x0f         ; drive bits 4-7 low = columns a 0V
 	reti
 
 .include "lcd.asm"
 .include "printf.asm"
 
-; FDEC decimal number
-; FHEX hexadecimal number
-; FBIN binary number
-; FFRAC fixed fraction number
-; FCHAR single ASCII character
-; FSTR zero-terminated ASCII string
 
 ; Initialization and configuration
 .org 0x400
@@ -226,7 +216,7 @@ kpd_main:
 	TESTKEY '2', c1
 	TESTKEY '2', c2
 	TESTKEY '1', c3
-	ldi b1, 0xff
+	
 	ldi a1, 0x02 ; change FSM state to 0x02
 	rjmp main
 

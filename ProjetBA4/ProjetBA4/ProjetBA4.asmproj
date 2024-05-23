@@ -81,13 +81,7 @@
     <Compile Include="definitions.asm">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="futaba_servo.asm">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="keypadv2.asm">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="kpd4x4.asm">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="lcd.asm">
@@ -102,13 +96,7 @@
     <Compile Include="printf.asm">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="servo.asm">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="servo_control.asm">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="test_routine.asm">
+    <Compile Include="stepper_motor.asm">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
