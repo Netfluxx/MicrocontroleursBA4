@@ -2,7 +2,7 @@
 ; ProjetBA4.asm
 ;
 ; Created: 27/04/2024 11:15:23
-; Author : Arno Laurie
+; Author : Arno Laurie, Vincent Lellu
 ;
 
 
@@ -22,57 +22,81 @@
 
 .dseg
 current_state: .byte 1
-current_code: .byte 4
+;current_code: .byte 4
+current_code: .db "0000", 0
 ;correct_code: .byte 4
-correct_code: .db "1234", 0
+correct_code: .db "1235", 0
 
 .cseg
 
+.include "m128def.inc"
 .include "macros.asm"
 .include "definitions.asm"
 .include "keypadv2.asm"
+.include "servo_control.asm"
 
 
 reset: 
- LDSP    RAMEND
- ldi w, 0x01
- sts current_state, w    ; reset the current state of the machine to 0x01
+	LDSP    RAMEND
+	ldi w, 0x01
+	sts current_state, w    ; reset the current state of the machine to 0x01
 
-    rcall   LCD_init
-    OUTI    KPDD,0xf0          ; port D bits 0-3 as input (DDR = 0), 4-7 as output (DDR = 1)
-    OUTI    KPDO,0x0f          ; drive bits 4-7 low = Colonnes a 0V
-    OUTI    DDRB,0xff          ; output for debug
-    OUTI    EIMSK,0x0f         ; Enable external interrupts INT0-INT3
-    OUTI    EICRB,0x00     ; Condition d'interrupt au niveau bas pour int4-7 = colonnes
+	rcall   LCD_init
+	OUTI    KPDD,  0xf0          ; port D bits 0-3 as input (DDR = 0), 4-7 as output (DDR = 1)
+	OUTI    KPDO,  0x0f          ; drive bits 4-7 low = Colonnes a 0V
+	OUTI    DDRB,  0xff          ; output for debug
+	OUTI    EIMSK, 0x0f         ; Enable external interrupts INT0-INT3
+	OUTI    EICRB, 0x00     ; Condition d'interrupt au niveau bas pour int4-7 = colonnes
+	OUTI	ADMUX,  3	   ; configure the servo as output
+	clr w
+	clr _w
+	clr r2
+	clr r1
+	clr r14
+	clr r15
+	clr a0
+	clr b0
+	clr b1
+	clr b3
+	clr r0
+	clr a3  ;a3 taille du code courant
+	clr b1
+	clr b2
+	clr d0
+	clr d1
+	clr d2
+	clr d3
 
- clr w
- clr _w
- clr r2
- clr r1
- clr r14
- clr r15
- clr a0
- clr b0
- clr b3
- clr r0
- clr a3  ;a3 taille du code courant
-
- sei
- call clear_code
- jmp main
+	sei
+	call servo_open
+	call clear_code
+	jmp main
 
 ;.include "test_routine.asm"
 
-main:  ;modifies a1, a2, a3
+main: 
+ ; a1 : FSM State
  ;state 0x01 : user must input code
  ;state 0x02 : user has inputted the correct code
  ;a3 = current code size in number of letters
- 
 
- lds a1, current_state
- ldi a2, 0x01
- CPSE a1, a2 ;skip next instruction if a1 == 0x01 (state 1)
+ /*ldi w, 0x01
+ CPSE a1, w ;skip next instruction if a1 == 0x01 (state 1)
  nop
- jmp kpd_main
+ jmp kpd_main*/
+
+ ldi w, 0x01
+ cp a1, w
+ breq FSM_state1 ;--> Waiting for correct code to be inputted by the user via the keypad	
+ ldi w, 0x02
+ cp a1, w
+ breq FSM_state2 ;-->Correct code has been found, now open the servo
 
  rjmp main
+
+FSM_state1:
+	jmp kpd_main
+FSM_state2:
+	call servo_open
+	jmp main
+	

@@ -1,4 +1,4 @@
-Vincent Lellu, [23/05/2024 13:35]
+
 ; file kpd4x4_S.asm   target ATmega128L-4MHz-STK300  
 ; purpose keypad 4x4 acquisition and print
 ; uses four external interrupts and ports internal pull-up
@@ -123,11 +123,10 @@ col4:
  _LDI wr2, 0xff
  rjmp isr_return
 
-
 isr_return:
  ;reinitialize detection
     OUTI    KPDO,0x0f         ; drive bits 4-7 low = columns a 0V
- reti
+	reti
 
 .include "lcd.asm"
 .include "printf.asm"
@@ -139,98 +138,97 @@ isr_return:
 ; FCHAR single ASCII character
 ; FSTR zero-terminated ASCII string
 
-;TODO: Store code as a string in SRAM and change print_code to print the current code
-
-
 ; Initialization and configuration
 .org 0x400
-
-Vincent Lellu, [23/05/2024 13:35]
-;reset:  ;in : None, out: KPDD, KPDO, DDRB, EIMSK, EICRB, PORTB, mod: mask, w, _w, wr0, wr1, wr2, a0, b0, b3, r0, I flag
-;    LDSP    RAMEND    ;DO I STILL NEED IT IF IT IS ALREADY IN MAIN?
-;    rcall   LCD_init
-;    OUTI    KPDD,0xf0          ; port D bits 0-3 as input (DDR = 0), 4-7 as output (DDR = 1)
-;    OUTI    KPDO,0x0f          ; drive bits 4-7 low = Colonnes a 0V
-;    OUTI    DDRB,0xff          ; output for debug
-;    OUTI    EIMSK,0x0f         ; Enable external interrupts INT0-INT3
-;    OUTI    EICRB,0x00     ; Condition d'interrupt au niveau bas pour int4-7 = colonnes
-; INVP PORTB, 7
-;
-;   clr mask
-; clr w
-; clr _w
-; clr wr2
-; clr wr1
-; clr wr0
-; clr a0
-; clr b0
-; clr b3
-; clr r0
-; sei
-;    rcall clear_code
-; jmp kpd_main
-
 
 print_code:
     cpi     a0, '*'
     breq    clear_code       ; Branch if key == *
- WAIT_MS 500
- clr wr2
- rcall LCD_putc
+	clr wr2
+	rcall LCD_putc
     ret
 
 clear_code:
+	clr a3
+	clr c0
+	clr c1
+	clr c2
+	clr c3
     rcall   LCD_clear
  PRINTF LCD
  .db CR, CR, "Code:"
- clr wr2
+ .db 0
+	clr wr2
     rjmp kpd_main
 
 get_char: ;Lookup table index = 4*row + col
- ldi     b0, 4
+	ldi     b0, 4
     mul     wr1, b0          ; wr1 <-- detected row*4, result is stored in r0
     add     r0, wr0          ; r0  <-- detected row*4 + detected column
     mov     b0, r0           ; b0  <-- index of key (starts at 0)
     ldi     ZH, high(2*KeySet)
     ldi     ZL, low(2*KeySet)
     add     ZL, b0
- ldi  w, 0x00
+	ldi		w, 0x00
     adc     ZH, w    ; Adjust ZH with carry
     lpm     a0, Z    ; enregistre la valeur a l'adresse pointee par Z=r31:r30 dans a0
- 
- subi a3, -1
- ldi     ZH, high(2*current_code)
-    ldi     ZL, low(2*current_code)
- add ZL, a3
- ldi w, 0x00
- adc ZH, w
+	
+	//go to main or somewhere else if code len is 4
+	rcall print_code
+	clz
+	cpi a3, 0
+	breq first_letter
+	cpi a3, 1
+	breq second_letter
+	cpi a3, 2
+	breq third_letter
+	cpi a3, 3
+	breq fourth_letter
 
- st Z, a0  ;update current code position
+	;rcall print_code
+	;rcall display_current_code
 
- rcall print_code
- cpi a3, 4  ; check if current code is the same size as correct code
- breq test_code
- rjmp kpd_main
+first_letter:
+	mov c0, a0
+	subi a3, -1
+	rjmp kpd_main
+second_letter:
+	mov c1, a0
+	subi a3, -1
+	rjmp kpd_main
+third_letter:
+	mov c2, a0
+	subi a3, -1
+	rjmp kpd_main
+fourth_letter:
+	mov c3, a0
+	subi a3, -1
+	rjmp test_code
 
 ; === main program loop ===
 kpd_main:
- ;mov _w, w  ;save context
- _CPI wr2, 0xff
- ;mov w, _w
- breq get_char
- WAIT_MS 10
- ;return to main if code is correct
+	 _CPI wr2, 0xff
+	 breq get_char
+	 rjmp kpd_main
 
- rjmp kpd_main
+.macro TESTKEY
+	ldi w, @0
+	cp @1, w
+	breq PC+2
+	jmp kpd_main
+	;WAIT_MS 500
+	;INVP PORTB, 7
+	;WAIT_MS 500
+	.endmacro
 
-    
-test_code:
- lds w, correct_code
- lds _w, current_code
- CPSE w, _w
- rjmp    kpd_main
- INVP PORTB, 7
- jmp main
+ test_code:	;password = 1221
+	TESTKEY '1', c0
+	TESTKEY '2', c1
+	TESTKEY '2', c2
+	TESTKEY '1', c3
+	ldi b1, 0xff
+	ldi a1, 0x02 ; change FSM state to 0x02
+	rjmp main
 
 ; Keypad ASCII mapping table
 KeySet:

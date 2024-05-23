@@ -15,7 +15,7 @@
     <Name>ProjetBA4</Name>
     <RootNamespace>ProjetBA4</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
-    <EntryFile>$(MSBuildProjectDirectory)\keypadv2.asm</EntryFile>
+    <EntryFile>$(MSBuildProjectDirectory)\main.asm</EntryFile>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
     <CacheFlash>true</CacheFlash>
@@ -103,6 +103,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="servo.asm">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="servo_control.asm">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="test_routine.asm">

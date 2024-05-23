@@ -1,22 +1,32 @@
 
-AVRASM ver. 2.2.6  C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm Wed May 22 17:24:15 2024
+AVRASM ver. 2.2.6  C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm Thu May 23 19:06:36 2024
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m128def.inc'
-C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(12): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\macros.asm'
-C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(13): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\definitions.asm'
-C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(22): warning: Register r2 already defined by the .DEF directive
-C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(23): warning: Register r1 already defined by the .DEF directive
-C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(24): warning: Register r14 already defined by the .DEF directive
-C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(25): warning: Register r15 already defined by the .DEF directive
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(32): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m128def.inc'
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(33): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\macros.asm'
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(34): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\definitions.asm'
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(35): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm'
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(23): warning: Register r2 already defined by the .DEF directive
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(35): 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm' included form here
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(24): warning: Register r1 already defined by the .DEF directive
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(35): 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm' included form here
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(25): warning: Register r14 already defined by the .DEF directive
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(35): 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm' included form here
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(26): warning: Register r15 already defined by the .DEF directive
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(35): 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm' included form here
 C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(131): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\lcd.asm'
 C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(132): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\printf.asm'
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(36): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\servo_control.asm'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m128def.inc'
-C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(12): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\macros.asm'
-C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(13): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\definitions.asm'
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(32): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m128def.inc'
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(33): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\macros.asm'
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(34): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\definitions.asm'
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(35): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm'
 C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(131): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\lcd.asm'
 C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(132): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\printf.asm'
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(36): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\servo_control.asm'
                                  
-                                 ; file	kpd4x4_S.asm   target ATmega128L-4MHz-STK300		
+                                 ;
                                  
                                  ;***** Created: 2011-02-09 12:03 ******* Source: ATmega128.xml ***********
                                  ;*************************************************************************
@@ -1235,17 +1245,89 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
                                  
                                  ; ***** END OF FILE ******************************************************
                                  
-                                 ; purpose keypad 4x4 acquisition and print
-                                 ; uses four external interrupts and ports internal pull-up
+                                 ; ProjetBA4.asm
+                                 ;
+                                 ; Created: 27/04/2024 11:15:23
+                                 ; Author : Arno Laurie, Vincent Lellu
+                                 ;
                                  
-                                 ; solutions based on the methodology presented in EE208-MICRO210_ESP-2024-v1.0.fm
-                                 ;>alternate solutions also possible
-                                 ; standalone solution/file; not meant as a modular solution and thus must be
-                                 ;>adapted when used in a complex project
-                                 ; solution based on interrupts detected on each row; not optimal but functional if
-                                 ;>and external four-input gate is not available
                                  
-                                 .include "macros.asm"        ; include macro definitions
+                                 ; SRAM Allocation
+                                 ; === interrupt vector table ===
+                                 .org 0x0000
+000000 940c 048a                     jmp reset
+                                 .org 0x0002
+000002 940c 000a                     jmp isr_row1    ; external interrupt INT0 = bit 0 du PORTD cable sur Row1
+                                 .org 0x0004
+000004 940c 0014                     jmp isr_row2    ; external interrupt INT1 = bit 1 du PORTD
+                                 .org 0x0006
+000006 940c 001e                     jmp isr_row3    ; external interrupt INT2 = bit 2 du PORTD
+                                 .org 0x0008
+000008 940c 0028                     jmp isr_row4    ; external interrupt INT3 = bit 3 du PORTD
+                                 
+                                 
+                                 .dseg
+000100                           current_state: .byte 1
+                                 ;current_code: .byte 4
+000101 30
+000102 30
+000103 30
+000104 30
+000105 00                        current_code: .db "0000", 0
+                                 ;correct_code: .byte 4
+000106 31
+000107 32
+000108 33
+000109 35
+00010a 00                        correct_code: .db "1235", 0
+                                 
+                                 .cseg
+                                 
+                                 .include "m128def.inc"
+                                 
+                                 ;***** Created: 2011-02-09 12:03 ******* Source: ATmega128.xml ***********
+                                 ;*************************************************************************
+                                 ;* A P P L I C A T I O N   N O T E   F O R   T H E   A V R   F A M I L Y
+                                 ;* 
+                                 ;* Number            : AVR000
+                                 ;* File Name         : "m128def.inc"
+                                 ;* Title             : Register/Bit Definitions for the ATmega128
+                                 ;* Date              : 2011-02-09
+                                 ;* Version           : 2.35
+                                 ;* Support E-mail    : avr@atmel.com
+                                 ;* Target MCU        : ATmega128
+                                 ;* 
+                                 ;* DESCRIPTION
+                                 ;* When including this file in the assembly program file, all I/O register 
+                                 ;* names and I/O register bit names appearing in the data book can be used.
+                                 ;* In addition, the six registers forming the three data pointers X, Y and 
+                                 ;* Z have been assigned names XL - ZH. Highest RAM address for Internal 
+                                 ;* SRAM is also defined 
+                                 ;* 
+                                 ;* The Register names are represented by their hexadecimal address.
+                                 ;* 
+                                 ;* The Register Bit names are represented by their bit number (0-7).
+                                 ;* 
+                                 ;* Please observe the difference in using the bit names with instructions
+                                 ;* such as "sbr"/"cbr" (set/clear bit in register) and "sbrs"/"sbrc"
+                                 ;* (skip if bit in register set/cleared). The following example illustrates
+                                 ;* this:
+                                 ;* 
+                                 ;* in    r16,PORTB             ;read PORTB latch
+                                 ;* sbr   r16,(1<<PB6)+(1<<PB5) ;set PB6 and PB5 (use masks, not bit#)
+                                 ;* out   PORTB,r16             ;output to PORTB
+                                 ;* 
+                                 ;* in    r16,TIFR              ;read the Timer Interrupt Flag Register
+                                 ;* sbrc  r16,TOV0              ;test the overflow flag (use bit#)
+                                 ;* rjmp  TOV0_is_set           ;jump if set
+                                 ;* ...                         ;otherwise do something else
+                                 ;*************************************************************************
+                                 
+                                 #ifndef _M128DEF_INC_
+                                 #endif  /* _M128DEF_INC_ */
+                                 
+                                 ; ***** END OF FILE ******************************************************
+                                 .include "macros.asm"
                                  
                                  ; purpose library, general-purpose macros
                                  ; author (c) R.Holzer (adapted MICRO210/EE208 A.Schmid)
@@ -3085,13 +3167,28 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
                                  	rjmp	@0
                                  	.endmacro
                                  .list
-                                 .include "definitions.asm"   ; include register/constant definitions
+                                 .include "definitions.asm"
                                  
                                  ; purpose library, definition of addresses and constants
                                  ; 20171114 A.S.
                                  
                                  ; === definitions  ===
                                  .list
+                                 .include "keypadv2.asm"
+                                 
+                                 ; file kpd4x4_S.asm   target ATmega128L-4MHz-STK300  
+                                 ; purpose keypad 4x4 acquisition and print
+                                 ; uses four external interrupts and ports internal pull-up
+                                 
+                                 ; solutions based on the methodology presented in EE208-MICRO210_ESP-2024-v1.0.fm
+                                 ;>alternate solutions also possible
+                                 ; standalone solution/file; not meant as a modular solution and thus must be
+                                 ;>adapted when used in a complex project
+                                 ; solution based on interrupts detected on each row; not optimal but functional if
+                                 ;>and external four-input gate is not available
+                                 
+                                 ;.include "macros.asm"        ; include macro definitions
+                                 ;.include "definitions.asm"   ; include register/constant definitions
                                  
                                  ; === definitions ===
                                  .equ    KPDD = DDRD
@@ -3106,16 +3203,16 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
                                  .def    wr2 = r15       ; semaphore: must enter LCD display routine, unary: 0 or other
                                  
                                  ; === interrupt vector table ===
-                                 .org 0x0000
-000000 940c 0400                     jmp reset
-                                 .org 0x0002
-000002 940c 000a                     jmp isr_row1    ; external interrupt INT0 = bit 0 du PORTD cable sur Row1
-                                 .org 0x0004
-000004 940c 0014                     jmp isr_row2    ; external interrupt INT1 = bit 1 du PORTD
-                                 .org 0x0006
-000006 940c 001e                     jmp isr_row3    ; external interrupt INT2 = bit 2 du PORTD
-                                 .org 0x0008
-000008 940c 0028                     jmp isr_row4    ; external interrupt INT3 = bit 3 du PORTD
+                                 ;.org 0x0000
+                                 ;    jmp reset
+                                 ;.org 0x0002
+                                 ;    jmp isr_row1    ; external interrupt INT0 = bit 0 du PORTD cable sur Row1
+                                 ;.org 0x0004
+                                 ;    jmp isr_row2    ; external interrupt INT1 = bit 1 du PORTD
+                                 ;.org 0x0006
+                                 ;    jmp isr_row3    ; external interrupt INT2 = bit 2 du PORTD
+                                 ;.org 0x0008
+                                 ;    jmp isr_row4    ; external interrupt INT3 = bit 3 du PORTD
                                  
                                  ; === interrupt service routines ===
                                  isr_row1:
@@ -3129,20 +3226,20 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 000011 e001
 000012 2ee0                          _LDI    mask, 0b00000001  ; detected in row 1 on PIND0
 000013 c01e                          rjmp    column_detect
-                                 	
+                                  
                                  
                                  isr_row2:
 000014 9bc1
 000015 c002
 000016 98c1
 000017 c001
-000018 9ac1                          INVP    PORTB, 1		  ; Toggle led 1 for visual feedback
+000018 9ac1                          INVP    PORTB, 1    ; Toggle led 1 for visual feedback
 000019 e001
 00001a 2e10                          _LDI    wr1, 0x01
 00001b e002
 00001c 2ee0                          _LDI    mask, 0b00000010 ; detected in row 2 on PIND1
 00001d c014                          rjmp    column_detect
-                                 	
+                                  
                                  
                                  isr_row3:
 00001e 9bc2
@@ -3155,7 +3252,7 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 000025 e004
 000026 2ee0                          _LDI    mask, 0b00000100  ; detected in row 3 on PIND2
 000027 c00a                          rjmp    column_detect
-                                 	
+                                  
                                  
                                  isr_row4:
 000028 9bc3
@@ -3168,7 +3265,7 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 00002f e008
 000030 2ee0                          _LDI    mask, 0b00001000  ; detected in row 4 on PIND3
 000031 c000                          rjmp    column_detect
-                                 	
+                                  
                                  
                                  
                                  ; === Column Detection Routines ===
@@ -3178,7 +3275,7 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
                                  
                                  column_detect:
 000032 ef0f
-000033 bb02                      	OUTI KPDO, 0xff
+000033 bb02                       OUTI KPDO, 0xff
                                  col1:
 000034 e10e
 000035 2e30
@@ -3198,9 +3295,9 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 000043 943a
 000044 f791
 000045 950a
-000046 f781                      	WAIT_MS	KPD_DELAY
+000046 f781                       WAIT_MS KPD_DELAY
 000047 e70f
-000048 bb02                      	OUTI	KPDO,0x7F	
+000048 bb02                       OUTI KPDO,0x7F 
 000049 e10e
 00004a 2e30
 00004b e001
@@ -3219,21 +3316,21 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 000058 943a
 000059 f791
 00005a 950a
-00005b f781                      	WAIT_MS	KPD_DELAY
-00005c b300                      	in		w,KPDI
-00005d 210e                      	and		w,mask
-00005e 2300                      	tst		w			
-00005f f451                      	brne	col2 ; check next col since this didn't pull the line low
+00005b f781                       WAIT_MS KPD_DELAY
+00005c b300                       in  w,KPDI
+00005d 210e                       and  w,mask
+00005e 2300                       tst  w   
+00005f f451                       brne col2 ; check next col since this didn't pull the line low
 000060 e003
-000061 2e20                      	_LDI	wr0,0x03
+000061 2e20                       _LDI wr0,0x03
 000062 9bc4
 000063 c002
 000064 98c4
 000065 c001
-000066 9ac4                      	INVP	PORTB,4		;;debug
+000066 9ac4                       INVP PORTB,4  ;;debug
 000067 ef0f
-000068 2ef0                      	_LDI wr2, 0xff
-000069 c09d                      	rjmp isr_return
+000068 2ef0                       _LDI wr2, 0xff
+000069 c09d                       rjmp isr_return
                                  col2:
 00006a e10e
 00006b 2e30
@@ -3253,9 +3350,9 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 000079 943a
 00007a f791
 00007b 950a
-00007c f781                      	WAIT_MS	KPD_DELAY
+00007c f781                       WAIT_MS KPD_DELAY
 00007d eb0f
-00007e bb02                      	OUTI	KPDO,0xBF	
+00007e bb02                       OUTI KPDO,0xBF 
 00007f e10e
 000080 2e30
 000081 e001
@@ -3274,21 +3371,21 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 00008e 943a
 00008f f791
 000090 950a
-000091 f781                      	WAIT_MS	KPD_DELAY
-000092 b300                      	in		w,KPDI
-000093 210e                      	and		w,mask
-000094 2300                      	tst		w			
-000095 f451                      	brne	col3
+000091 f781                       WAIT_MS KPD_DELAY
+000092 b300                       in  w,KPDI
+000093 210e                       and  w,mask
+000094 2300                       tst  w   
+000095 f451                       brne col3
 000096 e002
-000097 2e20                      	_LDI	wr0,0x02
+000097 2e20                       _LDI wr0,0x02
 000098 9bc5
 000099 c002
 00009a 98c5
 00009b c001
-00009c 9ac5                      	INVP	PORTB,5		;;debug
+00009c 9ac5                       INVP PORTB,5  ;;debug
 00009d ef0f
-00009e 2ef0                      	_LDI wr2, 0xff
-00009f c067                      	rjmp isr_return
+00009e 2ef0                       _LDI wr2, 0xff
+00009f c067                       rjmp isr_return
                                  col3:
 0000a0 e10e
 0000a1 2e30
@@ -3308,9 +3405,9 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 0000af 943a
 0000b0 f791
 0000b1 950a
-0000b2 f781                      	WAIT_MS	KPD_DELAY
+0000b2 f781                       WAIT_MS KPD_DELAY
 0000b3 ed0f
-0000b4 bb02                      	OUTI	KPDO,0xDF	
+0000b4 bb02                       OUTI KPDO,0xDF 
 0000b5 e10e
 0000b6 2e30
 0000b7 e001
@@ -3329,21 +3426,21 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 0000c4 943a
 0000c5 f791
 0000c6 950a
-0000c7 f781                      	WAIT_MS	KPD_DELAY
-0000c8 b300                      	in		w,KPDI
-0000c9 210e                      	and		w,mask
-0000ca 2300                      	tst		w			
-0000cb f451                      	brne	col4
+0000c7 f781                       WAIT_MS KPD_DELAY
+0000c8 b300                       in  w,KPDI
+0000c9 210e                       and  w,mask
+0000ca 2300                       tst  w   
+0000cb f451                       brne col4
 0000cc e001
-0000cd 2e20                      	_LDI	wr0,0x01
+0000cd 2e20                       _LDI wr0,0x01
 0000ce 9bc6
 0000cf c002
 0000d0 98c6
 0000d1 c001
-0000d2 9ac6                      	INVP	PORTB,6		;;debug
+0000d2 9ac6                       INVP PORTB,6  ;;debug
 0000d3 ef0f
-0000d4 2ef0                      	_LDI wr2, 0xff
-0000d5 c031                      	rjmp isr_return
+0000d4 2ef0                       _LDI wr2, 0xff
+0000d5 c031                       rjmp isr_return
                                  col4:
 0000d6 e10e
 0000d7 2e30
@@ -3363,9 +3460,9 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 0000e5 943a
 0000e6 f791
 0000e7 950a
-0000e8 f781                      	WAIT_MS	KPD_DELAY
+0000e8 f781                       WAIT_MS KPD_DELAY
 0000e9 ee0f
-0000ea bb02                      	OUTI	KPDO,0xEF	
+0000ea bb02                       OUTI KPDO,0xEF 
 0000eb e10e
 0000ec 2e30
 0000ed e001
@@ -3384,21 +3481,20 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 0000fa 943a
 0000fb f791
 0000fc 950a
-0000fd f781                      	WAIT_MS	KPD_DELAY
-0000fe b300                      	in		w,KPDI
-0000ff 210e                      	and		w,mask
-000100 2300                      	tst		w			
-000101 f429                      	brne	isr_return
+0000fd f781                       WAIT_MS KPD_DELAY
+0000fe b300                       in  w,KPDI
+0000ff 210e                       and  w,mask
+000100 2300                       tst  w   
+000101 f429                       brne isr_return
 000102 e000
-000103 2e20                      	_LDI	wr0,0x00
-                                 	;INVP	PORTB,3		;;debug
+000103 2e20                       _LDI wr0,0x00
+                                  ;INVP PORTB,3  ;;debug
 000104 ef0f
-000105 2ef0                      	_LDI wr2, 0xff
-000106 c000                      	rjmp isr_return
-                                 
+000105 2ef0                       _LDI wr2, 0xff
+000106 c000                       rjmp isr_return
                                  
                                  isr_return:
-                                 	;reinitialize detection
+                                  ;reinitialize detection
 000107 e00f
 000108 bb02                          OUTI    KPDO,0x0f         ; drive bits 4-7 low = columns a 0V
 000109 9518                      	reti
@@ -4046,150 +4142,264 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 000264 9520                      	COM4	a3,a2,a1,a0	; complement result
 000265 9508                      	ret
                                  
-                                 ; FDEC	decimal number
-                                 ; FHEX	hexadecimal number
-                                 ; FBIN	binary number
-                                 ; FFRAC	fixed fraction number
-                                 ; FCHAR	single ASCII character
-                                 ; FSTR	zero-terminated ASCII string
-                                 
-                                 ;TODO: Store code as a string in SRAM and change print_code to print the current code
-                                 
+                                 ; FDEC decimal number
+                                 ; FHEX hexadecimal number
+                                 ; FBIN binary number
+                                 ; FFRAC fixed fraction number
+                                 ; FCHAR single ASCII character
+                                 ; FSTR zero-terminated ASCII string
                                  
                                  ; Initialization and configuration
                                  .org 0x400
                                  
-                                 reset:  ;in : None, out: KPDD, KPDO, DDRB, EIMSK, EICRB, PORTB, mod: mask, w, _w, wr0, wr1, wr2, a0, b0, b3, r0, I flag
-000400 ef0f
-000401 bf0d
-000402 e100
-000403 bf0e                          LDSP    RAMEND				;DO I STILL NEED IT IF IT IS ALREADY IN MAIN?
-000404 dd30                          rcall   LCD_init
-000405 ef00
-000406 bb01                          OUTI    KPDD,0xf0          ; port D bits 0-3 as input (DDR = 0), 4-7 as output (DDR = 1)
-000407 e00f
-000408 bb02                          OUTI    KPDO,0x0f          ; drive bits 4-7 low = Colonnes a 0V
-000409 ef0f
-00040a bb07                          OUTI    DDRB,0xff          ; output for debug
-00040b e00f
-00040c bf09                          OUTI    EIMSK,0x0f         ; Enable external interrupts INT0-INT3
-00040d e000
-00040e bf0a                          OUTI    EICRB,0x00		   ; Condition d'interrupt au niveau bas pour int4-7 = colonnes
-00040f 9bc7
-000410 c002
-000411 98c7
-000412 c001
-000413 9ac7                      	INVP	PORTB, 7
-                                 
-000414 24ee                          clr mask
-000415 2700                      	clr w
-000416 2711                      	clr _w
-000417 24ff                      	clr wr2
-000418 2411                      	clr wr1
-000419 2422                      	clr wr0
-00041a 2722                      	clr a0
-00041b 2766                      	clr b0
-00041c 2799                      	clr b3
-00041d 2400                      	clr r0
-00041e 9478                      	sei
-00041f d01a                          rcall clear_code
-000420 940c 0452                 	jmp kpd_main
-                                 
-                                 
                                  print_code:
-000422 322a                          cpi     a0, '*'
-000423 f0b1                          breq    clear_code       ; Branch if key == *
-000424 ef04
-000425 2e30
-000426 e002
-000427 930f
-000428 923f
-000429 e300
-00042a 2e30
-00042b e006
-00042c 943a
-00042d f7f1
-00042e 943a
-00042f 950a
-000430 f7d9
-000431 903f
-000432 910f
-000433 943a
-000434 f791
-000435 950a
-000436 f781                      	WAIT_MS 500
-000437 24ff                      	clr wr2
-000438 dcdc                      	rcall LCD_putc
-000439 9508                          ret
+000400 322a                          cpi     a0, '*'
+000401 f019                          breq    clear_code       ; Branch if key == *
+000402 24ff                      	clr wr2
+000403 dd11                      	rcall LCD_putc
+000404 9508                          ret
                                  
                                  clear_code:
-00043a dce6                          rcall   LCD_clear
-00043b e105
-00043c 2e40
-00043d e001
-00043e 2e50
-00043f dd13                      	PRINTF LCD
-000440 0d0d
-000441 6f43
-000442 6564
-C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(183): warning: .cseg .db misalignment - padding zero byte
-000443 003a                      	.db	CR, CR, "Code:"
-000444 24ff                      	clr wr2
-000445 c00c                          rjmp kpd_main
+000405 2755                      	clr a3
+000406 2488                      	clr c0
+000407 2499                      	clr c1
+000408 24aa                      	clr c2
+000409 24bb                      	clr c3
+00040a dd16                          rcall   LCD_clear
+00040b e105
+00040c 2e40
+00040d e001
+00040e 2e50
+00040f dd43                       PRINTF LCD
+000410 0d0d
+000411 6f43
+000412 6564
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(159): warning: .cseg .db misalignment - padding zero byte
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(35): 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm' included form here
+000413 003a                       .db CR, CR, "Code:"
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(160): warning: .cseg .db misalignment - padding zero byte
+C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm(35): 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm' included form here
+000414 0000                       .db 0
+000415 24ff                      	clr wr2
+000416 c020                          rjmp kpd_main
                                  
                                  get_char: ;Lookup table index = 4*row + col
-000446 e064                      	ldi     b0, 4
-000447 9e16                          mul     wr1, b0          ; wr1 <-- detected row*4, result is stored in r0
-000448 0c02                          add     r0, wr0          ; r0  <-- detected row*4 + detected column
-000449 2d60                          mov     b0, r0           ; b0  <-- index of key (starts at 0)
-00044a e0f8                          ldi     ZH, high(2*KeySet)
-00044b ede2                          ldi     ZL, low(2*KeySet)
-00044c 0fe6                          add     ZL, b0
-00044d e090                      	ldi		b3, 0x00
-00044e 1ff9                          adc     ZH, b3			 ; Adjust ZH with carry
-00044f 9124                          lpm     a0, Z			 ; enregistre la valeur a l'adresse pointee par Z=r31:r30 dans a0
+000417 e064                      	ldi     b0, 4
+000418 9e16                          mul     wr1, b0          ; wr1 <-- detected row*4, result is stored in r0
+000419 0c02                          add     r0, wr0          ; r0  <-- detected row*4 + detected column
+00041a 2d60                          mov     b0, r0           ; b0  <-- index of key (starts at 0)
+00041b e0f8                          ldi     ZH, high(2*KeySet)
+00041c eae4                          ldi     ZL, low(2*KeySet)
+00041d 0fe6                          add     ZL, b0
+00041e e000                      	ldi		w, 0x00
+00041f 1ff0                          adc     ZH, w    ; Adjust ZH with carry
+000420 9124                          lpm     a0, Z    ; enregistre la valeur a l'adresse pointee par Z=r31:r30 dans a0
                                  	
-000450 dfd1                      	rcall print_code
-000451 c000                      	rjmp kpd_main
+                                 	//go to main or somewhere else if code len is 4
+000421 dfde                      	rcall print_code
+000422 9498                      	clz
+000423 3050                      	cpi a3, 0
+000424 f031                      	breq first_letter
+000425 3051                      	cpi a3, 1
+000426 f039                      	breq second_letter
+000427 3052                      	cpi a3, 2
+000428 f041                      	breq third_letter
+000429 3053                      	cpi a3, 3
+00042a f049                      	breq fourth_letter
+                                 
+                                 	;rcall print_code
+                                 	;rcall display_current_code
+                                 
+                                 first_letter:
+00042b 2e82                      	mov c0, a0
+00042c 5f5f                      	subi a3, -1
+00042d c009                      	rjmp kpd_main
+                                 second_letter:
+00042e 2e92                      	mov c1, a0
+00042f 5f5f                      	subi a3, -1
+000430 c006                      	rjmp kpd_main
+                                 third_letter:
+000431 2ea2                      	mov c2, a0
+000432 5f5f                      	subi a3, -1
+000433 c003                      	rjmp kpd_main
+                                 fourth_letter:
+000434 2eb2                      	mov c3, a0
+000435 5f5f                      	subi a3, -1
+000436 c004                      	rjmp test_code
                                  
                                  ; === main program loop ===
                                  kpd_main:
-                                 	;mov _w, w		;save context
-000452 ef0f
-000453 16f0                      	_CPI wr2, 0xff
-                                 	;mov w, _w
-000454 f389                      	breq get_char
-000455 e00a
-000456 2e30
-000457 e001
-000458 930f
-000459 923f
-00045a e300
-00045b 2e30
-00045c e006
-00045d 943a
-00045e f7f1
-00045f 943a
-000460 950a
-000461 f7d9
-000462 903f
-000463 910f
-000464 943a
-000465 f791
-000466 950a
-000467 f781                      	WAIT_MS 10
-000468 cfe9                          rjmp    kpd_main
+000437 ef0f
+000438 16f0                      	 _CPI wr2, 0xff
+000439 f2e9                      	 breq get_char
+00043a cffc                      	 rjmp kpd_main
                                  
+                                 .macro TESTKEY
+                                 	ldi w, @0
+                                 	cp @1, w
+                                 	breq PC+2
+                                 	jmp kpd_main
+                                 	;WAIT_MS 500
+                                 	;INVP PORTB, 7
+                                 	;WAIT_MS 500
+                                 	.endmacro
+                                 
+                                  test_code:	;password = 1221
+00043b e301
+00043c 1680
+00043d f009
+00043e 940c 0437                 	TESTKEY '1', c0
+000440 e302
+000441 1690
+000442 f009
+000443 940c 0437                 	TESTKEY '2', c1
+000445 e302
+000446 16a0
+000447 f009
+000448 940c 0437                 	TESTKEY '2', c2
+00044a e301
+00044b 16b0
+00044c f009
+00044d 940c 0437                 	TESTKEY '1', c3
+00044f ef7f                      	ldi b1, 0xff
+000450 e032                      	ldi a1, 0x02 ; change FSM state to 0x02
+000451 c065                      	rjmp main
                                  
                                  ; Keypad ASCII mapping table
                                  KeySet:
-000469 3231
-00046a 4133                      .db '1', '2', '3', 'A'
-00046b 3534
-00046c 4236                      .db '4', '5', '6', 'B'
-00046d 3837
-00046e 4339                      .db '7', '8', '9', 'C'
-00046f 302a
+000452 3231
+000453 4133                      .db '1', '2', '3', 'A'
+000454 3534
+000455 4236                      .db '4', '5', '6', 'B'
+000456 3837
+000457 4339                      .db '7', '8', '9', 'C'
+000458 302a                      .include "servo_control.asm"
+000459 4423                      
+00045a 937f                      	push r23
+00045b e270                      	ldi r23, 0x20
+                                 loop_open:
+00045c 9a1c                      	P1 PORTE, SERVO1
+00045d ec04
+00045e 2e30
+00045f e007
+000460 943a
+000461 f7f1
+000462 943a
+000463 950a
+000464 f7d9                      	WAIT_US 1300
+000465 981c                      	P0 PORTE, SERVO1
+000466 e604
+000467 2e30
+000468 e602
+000469 943a
+00046a f7f1
+00046b 943a
+00046c 950a
+00046d f7d9                      	WAIT_US 18700
+00046e 957a
+00046f f761                      	DJNZ r23, loop_open
+000470 917f                      	pop r23
+000471 9508                      	ret
+                                 
+                                 servo_close:
+000472 937f                      	push r23
+000473 e270                      	ldi r23, 0x20
+                                 loop_close:
+000474 9a1c                      	P1 PORTE, SERVO1
+000475 e80f
+000476 2e30
+000477 e002
+000478 943a
+000479 f7f1
+00047a 943a
+00047b 950a
+00047c f7d9                      	WAIT_US 300
+00047d 981c                      	P0 PORTE, SERVO1
+00047e e909
+00047f 2e30
+000480 e607
+000481 943a
+000482 f7f1
+000483 943a
+000484 950a
+000485 f7d9                      	WAIT_US 19700
+000486 957a
+000487 f761                      	DJNZ r23, loop_close
+000488 917f                      	pop r23
+000489 9508                      
+                                 
+                                 reset: 
+00048a ef0f
+00048b bf0d
+00048c e100
+00048d bf0e                      	LDSP    RAMEND
+00048e e001                      	ldi w, 0x01
+00048f 9300 0100                 	sts current_state, w    ; reset the current state of the machine to 0x01
+                                 
+000491 dca3                      	rcall   LCD_init
+000492 ef00
+000493 bb01                      	OUTI    KPDD,  0xf0          ; port D bits 0-3 as input (DDR = 0), 4-7 as output (DDR = 1)
+000494 e00f
+000495 bb02                      	OUTI    KPDO,  0x0f          ; drive bits 4-7 low = Colonnes a 0V
+000496 ef0f
+000497 bb07                      	OUTI    DDRB,  0xff          ; output for debug
+000498 e00f
+000499 bf09                      	OUTI    EIMSK, 0x0f         ; Enable external interrupts INT0-INT3
+00049a e000
+00049b bf0a                      	OUTI    EICRB, 0x00     ; Condition d'interrupt au niveau bas pour int4-7 = colonnes
+00049c e003
+00049d b907                      	OUTI	ADMUX,  3	   ; configure the servo as output
+00049e 2700                      	clr w
+00049f 2711                      	clr _w
+0004a0 2422                      	clr r2
+0004a1 2411                      	clr r1
+0004a2 24ee                      	clr r14
+0004a3 24ff                      	clr r15
+0004a4 2722                      	clr a0
+0004a5 2766                      	clr b0
+0004a6 2777                      	clr b1
+0004a7 2799                      	clr b3
+0004a8 2400                      	clr r0
+0004a9 2755                      	clr a3  ;a3 taille du code courant
+0004aa 2777                      	clr b1
+0004ab 2788                      	clr b2
+0004ac 24cc                      	clr d0
+0004ad 24dd                      	clr d1
+0004ae 24ee                      	clr d2
+0004af 24ff                      	clr d3
+                                 
+0004b0 9478                      	sei
+0004b1 940e 045a                 	call servo_open
+0004b3 940e 0405                 	call clear_code
+0004b5 940c 04b7                 	jmp main
+                                 
+                                 ;.include "test_routine.asm"
+                                 
+                                 main: 
+                                  ; a1 : FSM State
+                                  ;state 0x01 : user must input code
+                                  ;state 0x02 : user has inputted the correct code
+                                  ;a3 = current code size in number of letters
+                                 
+                                  /*ldi w, 0x01
+                                  CPSE a1, w ;skip next instruction if a1 == 0x01 (state 1)
+                                  nop
+                                  jmp kpd_main*/
+                                 
+0004b7 e001                       ldi w, 0x01
+0004b8 1730                       cp a1, w
+0004b9 f021                       breq FSM_state1 ;--> Waiting for correct code to be inputted by the user via the keypad	
+0004ba e002                       ldi w, 0x02
+0004bb 1730                       cp a1, w
+0004bc f019                       breq FSM_state2 ;-->Correct code has been found, now open the servo
+                                 
+0004bd cff9                       rjmp main
+                                 
+                                 FSM_state1:
+0004be 940c 0437                 	jmp kpd_main
+                                 FSM_state2:
+0004c0 940e 045a                 	call servo_open
+0004c2 940c 04b7                 	jmp main
 
 
 RESOURCE USE INFORMATION
@@ -4207,41 +4417,41 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega128" register use summary:
-x  :   6 y  :   0 z  :   1 r0 :  10 r1 :   6 r2 :   6 r3 :  72 r4 :   2 
-r5 :   2 r6 :   0 r7 :   0 r8 :   5 r9 :   5 r10:   5 r11:   6 r12:  11 
-r13:   0 r14:   9 r15:   8 r16: 246 r17:   1 r18:  27 r19:  15 r20:  15 
-r21:  15 r22:  14 r23:  25 r24:   7 r25:  18 r26:   4 r27:   4 r28:   0 
+x  :   6 y  :   0 z  :   1 r0 :  10 r1 :   6 r2 :   6 r3 :  70 r4 :   2 
+r5 :   2 r6 :   0 r7 :   0 r8 :   8 r9 :   8 r10:   8 r11:   9 r12:  12 
+r13:   1 r14:  10 r15:   9 r16: 260 r17:   1 r18:  31 r19:  18 r20:  15 
+r21:  25 r22:  14 r23:  36 r24:   8 r25:  16 r26:   4 r27:   4 r28:   0 
 r29:   0 r30:  13 r31:   8 
-Registers used: 29 out of 35 (82.9%)
+Registers used: 30 out of 35 (85.7%)
 
 "ATmega128" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   1 add   :   4 adiw  :   5 and   :   4 
 andi  :   7 asr   :   2 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   1 brcs  :   0 break :   0 breq  :  18 brge  :   0 brhc  :   0 
+brcc  :   1 brcs  :   0 break :   0 breq  :  28 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   1 brlt  :   0 brmi  :   1 
-brne  :  51 brpl  :   1 brsh  :   1 brtc  :   5 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   1 call  :   0 cbi   :   8 cbr   :   0 
-clc   :   1 clh   :   0 cli   :   0 cln   :   0 clr   :  22 cls   :   0 
-clt   :   1 clv   :   0 clz   :   0 com   :   8 cp    :   2 cpc   :   3 
-cpi   :  11 cpse  :   0 dec   :  56 elpm  :   0 eor   :   0 fmul  :   0 
+brne  :  53 brpl  :   1 brsh  :   1 brtc  :   5 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   1 call  :   3 cbi   :   9 cbr   :   0 
+clc   :   1 clh   :   0 cli   :   0 cln   :   0 clr   :  35 cls   :   0 
+clt   :   1 clv   :   0 clz   :   1 com   :   8 cp    :   8 cpc   :   3 
+cpi   :  15 cpse  :   0 dec   :  60 elpm  :   0 eor   :   0 fmul  :   0 
 fmuls :   0 fmulsu:   0 icall :   1 ijmp  :   1 in    :   5 inc   :   2 
-jmp   :   6 ld    :   6 ldd   :   0 ldi   : 110 lds   :   3 lpm   :  14 
-lsl   :   1 lsr   :   3 mov   :  58 movw  :   0 mul   :   1 muls  :   0 
-mulsu :   0 neg   :   0 nop   :   1 or    :   0 ori   :   2 out   :  14 
-pop   :  43 push  :  42 rcall :  28 ret   :  13 reti  :   1 rjmp  :  61 
-rol   :  10 ror   :  13 sbc   :   3 sbci  :   0 sbi   :   8 sbic  :   0 
-sbis  :   8 sbiw  :   0 sbr   :   1 sbrc  :  11 sbrs  :   0 sec   :   0 
+jmp   :  12 ld    :   6 ldd   :   0 ldi   : 122 lds   :   3 lpm   :  14 
+lsl   :   1 lsr   :   3 mov   :  62 movw  :   0 mul   :   1 muls  :   0 
+mulsu :   0 neg   :   0 nop   :   1 or    :   0 ori   :   2 out   :  15 
+pop   :  41 push  :  40 rcall :  27 ret   :  15 reti  :   1 rjmp  :  64 
+rol   :  10 ror   :  13 sbc   :   3 sbci  :   0 sbi   :   9 sbic  :   0 
+sbis  :   7 sbiw  :   0 sbr   :   1 sbrc  :  11 sbrs  :   0 sec   :   0 
 seh   :   0 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   1 
 sev   :   0 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 
-sts   :   3 sub   :   3 subi  :   3 swap  :   4 tst   :  12 wdr   :   0 
+sts   :   4 sub   :   3 subi  :   7 swap  :   4 tst   :  12 wdr   :   0 
 
-Instructions used: 60 out of 114 (52.6%)
+Instructions used: 62 out of 114 (54.4%)
 
 "ATmega128" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0008e2   1430     24   1454  131072   1.1%
-[.dseg] 0x000100 0x000100      0      0      0    4096   0.0%
+[.cseg] 0x000000 0x000988   1594     26   1620  131072   1.2%
+[.dseg] 0x000100 0x00010b      0     11     11    4096   0.3%
 [.eseg] 0x000000 0x000000      0      0      0    4096   0.0%
 
-Assembly complete, 0 errors, 5 warnings
+Assembly complete, 0 errors, 6 warnings
