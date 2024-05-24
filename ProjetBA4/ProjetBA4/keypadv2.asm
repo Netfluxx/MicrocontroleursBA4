@@ -10,8 +10,8 @@
 ; solution based on interrupts detected on each row; not optimal but functional if
 ;>and external four-input gate is not available
 
-;.include "macros.asm"        ; include macro definitions
-;.include "definitions.asm"   ; include register/constant definitions
+;===== USED REGISTERS =====
+;r1, r2, r14, r15, r16, r17, a0
 
 ; === definitions ===
 .equ    KPDD = DDRD
